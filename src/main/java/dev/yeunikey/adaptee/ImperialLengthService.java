@@ -2,38 +2,31 @@ package dev.yeunikey.adaptee;
 
 /**
  * The adaptee class that provides conversion methods within the Imperial system.
- * It does not directly support meters, only feet, inches, and miles.
+ * It allows converting between meters and feet using predefined constants.
  */
 public class ImperialLengthService {
 
+    private static final double METERS_TO_FEET = 3.280839895013123;
+    private static final double FEET_TO_METERS = 1.0 / METERS_TO_FEET;
+
     /**
-     * Converts feet to inches.
+     * Converts meters to feet using the METERS_TO_FEET constant.
      *
-     * @param feet  The value in feet as {@link Double}
-     * @return      The converted value in inches as {@link Double}
+     * @param meters the value in meters (primitive double)
+     * @return the converted value in feet (primitive double)
      */
-    public double feetToInches(double feet) {
-        return feet * 12.0;
+    public double metersToFeet(double meters) {
+        return meters * METERS_TO_FEET;
     }
 
     /**
-     * Converts inches to feet.
+     * Converts feet to meters using the FEET_TO_METERS constant.
      *
-     * @param inches    The value in inches as {@link Double}
-     * @return          The converted value in feet as {@link Double}
+     * @param feet the value in feet (primitive double)
+     * @return the converted value in meters (primitive double)
      */
-    public double inchesToFeet(double inches) {
-        return inches / 12.0;
-    }
-
-    /**
-     * Converts miles to feet.
-     *
-     * @param miles     The value in miles as {@link Double}
-     * @return          The converted value in feet as {@link Double}
-     */
-    public double milesToFeet(double miles) {
-        return miles * 5280.0;
+    public double feetToMeters(double feet) {
+        return feet * FEET_TO_METERS;
     }
 
 }
